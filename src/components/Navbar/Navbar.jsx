@@ -6,18 +6,18 @@ import { motion, AnimatePresence } from 'framer-motion'
 import './Navbar.css'
 
 const NAV_LINKS = [
-  { label: 'Home',         href: '#hero' },
-  { label: 'About',        href: '#about' },
-  { label: 'Services',     href: '#services' },
-  { label: 'Portfolio',    href: '#portfolio' },
-  { label: 'Why Us',       href: '#why-us' },
-  { label: 'Testimonials', href: '#testimonials' },
-  { label: 'Contact',      href: '#contact' },
+  { label: 'Home', href: '#hero' },
+  { label: 'About', href: '#about' },
+  { label: 'Services', href: '#services' },
+  { label: 'Portfolio', href: '#portfolio' },
+  { label: 'Why Us', href: '#why-us' },
+  // { label: 'Testimonials', href: '#testimonials' },
+  { label: 'Contact', href: '#contact' },
 ]
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false)
-  const [active,   setActive]   = useState('hero')
+  const [active, setActive] = useState('hero')
   const [menuOpen, setMenuOpen] = useState(false)
 
   // Glassmorphism trigger on scroll

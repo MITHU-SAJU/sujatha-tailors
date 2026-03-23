@@ -64,10 +64,10 @@ export default function WhyUs() {
             transition={{ duration: 0.6 }}
           >
             <span className="section-tag">Why Choose Us</span>
-            <h2 className="section-title">The Sujatha Difference</h2>
+            <h2 className="section-title">The Sujatha's Difference</h2>
             <div className="gold-divider mx-auto mb-3" />
             <p className="section-subtitle">
-              Excellence woven into every garment we create.
+              Excellence in every stitch we create.
             </p>
           </motion.div>
         </div>

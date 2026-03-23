@@ -33,7 +33,7 @@ function App() {
             <Services />
             <Portfolio />
             <WhyUs />
-            <Testimonials />
+
             <Contact />
           </main>
           <Footer />
