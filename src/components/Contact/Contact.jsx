@@ -5,15 +5,16 @@ import { useState, useRef } from 'react'
 import { motion, useInView } from 'framer-motion'
 import { FaWhatsapp, FaPhone, FaMapMarkerAlt, FaClock, FaEnvelope } from 'react-icons/fa'
 import './Contact.css'
+import emailjs from '@emailjs/browser'
 
-const fadeLeft  = { hidden: { opacity: 0, x: -50 }, show: { opacity: 1, x: 0 } }
-const fadeRight = { hidden: { opacity: 0, x:  50 }, show: { opacity: 1, x: 0 } }
+const fadeLeft = { hidden: { opacity: 0, x: -50 }, show: { opacity: 1, x: 0 } }
+const fadeRight = { hidden: { opacity: 0, x: 50 }, show: { opacity: 1, x: 0 } }
 
 export default function Contact() {
-  const [form, setForm]       = useState({ name: '', phone: '', service: '', message: '' })
+  const [form, setForm] = useState({ name: '', phone: '', service: '', message: '' })
   const [sending, setSending] = useState(false)
-  const [sent, setSent]       = useState(false)
-  const ref    = useRef(null)
+  const [sent, setSent] = useState(false)
+  const ref = useRef(null)
   const inView = useInView(ref, { once: true, margin: '-80px' })
 
   const handleChange = (e) => setForm({ ...form, [e.target.name]: e.target.value })
@@ -21,12 +22,30 @@ export default function Contact() {
   const handleSubmit = (e) => {
     e.preventDefault()
     setSending(true)
-    setTimeout(() => {
-      setSending(false)
-      setSent(true)
-      setForm({ name: '', phone: '', service: '', message: '' })
-      setTimeout(() => setSent(false), 5000)
-    }, 1500)
+
+    emailjs.send(
+      'service_g1axcve',
+      'template_jdrmefl',
+      {
+        name: form.name,
+        phone: form.phone,
+        service: form.service,
+        message: form.message,
+      },
+      'feiHl32KYKGr0pi7z'
+    )
+      .then(() => {
+        setSending(false)
+        setSent(true)
+        setForm({ name: '', phone: '', service: '', message: '' })
+
+        setTimeout(() => setSent(false), 5000)
+      })
+      .catch((error) => {
+        setSending(false)
+        alert('❌ Failed to send message. Try again.')
+        console.error(error)
+      })
   }
 
   const openWhatsApp = () => {
