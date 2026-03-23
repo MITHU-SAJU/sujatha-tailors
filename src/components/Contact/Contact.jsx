@@ -139,7 +139,7 @@ export default function Contact() {
                   <div className="contact-item-icon"><FaEnvelope /></div>
                   <div className="contact-item-body">
                     <span className="label">Email</span>
-                    <a href="mailto:dhavanaimithun@gmail.com" className="value">info@sujathatailors.com</a>
+                    <a href="mailto:dhavanaimithun@gmail.com" className="value">dhavanaimithun@gmail.com</a>
                   </div>
                 </div>
 
